@@ -12,14 +12,15 @@ const modalShadow = document.querySelector(".modalShadow");
 let countTime;
 let minutes = 0;
 let seconds = 0;
+let timesArray = [];
 
 const handleStart = () => {
 	clearInterval(countTime);
 
 	countTime = setInterval(() => {
+		stopWatch.textContent = `${minutes}:0${seconds}`;
 		if (seconds < 9) {
 			seconds++;
-			stopWatch.textContent = `${minutes}:0${seconds}`;
 		} else if (seconds >= 9 && seconds < 59) {
 			seconds++;
 			stopWatch.textContent = `${minutes}:${seconds}`;
@@ -35,5 +36,22 @@ const handlePause = () => {
 	clearInterval(countTime);
 };
 
+const handleStop = () => {
+	time.innerHTML = `Ostatni czas to: ${stopWatch.textContent}`;
+
+	if (stopWatch.textContent !== "0:00") {
+		time.style.visibility = "visible";
+		timesArray.push(stopWatch.textContent);
+	}
+
+	clearInterval(countTime);
+
+	stopWatch.textContent = "0:00";
+	timeList.textContent = "";
+	seconds = 0;
+	minutes = 0;
+};
+
 startButton.addEventListener("click", handleStart);
 pauseButton.addEventListener("click", handlePause);
+stopButton.addEventListener("click", handleStop);
