@@ -113,7 +113,9 @@ button:focus {
 
 .timeList {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	width: 80%;
 	font-size: 22px;
 	padding: 20px;
