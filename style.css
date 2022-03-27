@@ -61,7 +61,7 @@ body {
 }
 
 .time {
-	/* visibility: hidden; */
+	visibility: hidden;
 	font-size: 22px;
 	color: var(--secondColor);
 	margin-bottom: 10px;
