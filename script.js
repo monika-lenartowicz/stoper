@@ -3,7 +3,7 @@ const pauseButton = document.querySelector(".pause");
 const resetButton = document.querySelector(".reset");
 const stopButton = document.querySelector(".stop");
 const historyButton = document.querySelector(".history");
-const closeButton = document.querySelector(".close");
+const closeButton = document.querySelector(".modalClose");
 const stopWatch = document.querySelector(".stopWatch");
 const time = document.querySelector(".time");
 const timeList = document.querySelector(".timeList");
@@ -74,8 +74,20 @@ const showHistory = () => {
 	});
 };
 
+const showModal = () => {
+	if (!(modalShadow.style.display === "block")) {
+		modalShadow.style.display = "block";
+	} else {
+		modalShadow.style.display = "none";
+	}
+	modalShadow.classList.toggle("modalAnimation");
+};
+
 startButton.addEventListener("click", handleStart);
 pauseButton.addEventListener("click", handlePause);
 stopButton.addEventListener("click", handleStop);
 resetButton.addEventListener("click", handleReset);
 historyButton.addEventListener("click", showHistory);
+infoButton.addEventListener("click", showModal);
+closeButton.addEventListener("click", showModal);
+window.addEventListener("click", e => (e.target === modalShadow ? showModal() : false));
