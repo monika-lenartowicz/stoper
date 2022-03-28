@@ -7,6 +7,7 @@
 :root {
 	--firstColor: #fa6306;
 	--secondColor: #d2c7be;
+	--hoverColor: rgb(195, 75, 2);
 }
 
 body {
@@ -32,6 +33,7 @@ body {
 	border-radius: 8px;
 	box-shadow: 5px 5px 15px black;
 	color: whitesmoke;
+	overflow: hidden;
 }
 
 .info {
@@ -45,7 +47,7 @@ body {
 	position: relative;
 	color: var(--secondColor);
 	cursor: pointer;
-	padding: 10px;
+	padding: 20px;
 	transition: color.4s;
 }
 
@@ -74,8 +76,9 @@ body {
 	position: absolute;
 	width: 55px;
 	height: 40%;
-	right: 0;
+	right: -155px;
 	top: 100px;
+	transition: transform 0.5s;
 }
 
 .color {
@@ -85,6 +88,16 @@ body {
 	border: 3px solid black;
 	cursor: pointer;
 	transition: background-color 0.3s, box-shadow 0.5s;
+}
+
+.colors--show {
+	transform: translateX(-170px);
+}
+
+@media (max-width: 550px) {
+	.colors--show {
+		transform: translateX(-158px);
+	}
 }
 
 .one {
@@ -102,6 +115,11 @@ body {
 	box-shadow: 0 0 5px #00cefc;
 }
 
+.four {
+	background-color: #fa6306;
+	box-shadow: 0 0 5px #fa6306;
+}
+
 .one:hover {
 	background-color: rgb(67, 191, 42);
 }
@@ -112,6 +130,30 @@ body {
 
 .three:hover {
 	background-color: rgb(53, 150, 172);
+}
+
+button {
+	margin: 10px;
+	width: 20%;
+	color: white;
+	font-size: 22px;
+	background-color: transparent;
+	border: 2px solid var(--firstColor);
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+@media (max-width: 550px) {
+	button {
+		width: 40%;
+	}
+}
+
+button:hover,
+button:focus {
+	background-color: var(--firstColor);
+	outline: none;
 }
 
 .title {
@@ -149,31 +191,7 @@ body {
 .history {
 	flex-grow: 1;
 	text-transform: uppercase;
-}
-
-button {
-	margin: 10px;
 	padding: 10px 20px;
-	width: 20%;
-	color: white;
-	font-size: 22px;
-	background-color: transparent;
-	border: 2px solid var(--firstColor);
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-@media (max-width: 550px) {
-	button {
-		width: 40%;
-	}
-}
-
-button:hover,
-button:focus {
-	background-color: var(--firstColor);
-	outline: none;
 }
 
 .timeList {
@@ -228,10 +246,11 @@ span {
 	min-width: 200px;
 	background-color: var(--firstColor);
 	transition: background-color 0.3s;
+	padding: 10px 20px;
 }
 
 .modalClose:hover {
-	background-color: rgb(195, 75, 2);
+	background-color: var(--hoverColor);
 }
 
 .modalAnimation {
