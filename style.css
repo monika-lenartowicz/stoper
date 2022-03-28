@@ -35,18 +35,83 @@ body {
 }
 
 .info {
-	position: absolute;
-	right: 6px;
-	top: 6px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 	font-size: 24px;
-	padding: 20px;
+}
+
+.fas {
+	position: relative;
 	color: var(--secondColor);
 	cursor: pointer;
+	padding: 10px;
 	transition: color.4s;
 }
 
-.info:hover {
+.fa-question {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+}
+
+.fa-question:hover,
+.fa-paint-brush:hover {
 	color: var(--firstColor);
+}
+
+.fa-paint-brush {
+	position: absolute;
+	top: 6px;
+	right: 50px;
+}
+
+.colors {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	width: 55px;
+	height: 40%;
+	right: 0;
+	top: 100px;
+}
+
+.color {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 3px solid black;
+	cursor: pointer;
+	transition: background-color 0.3s, box-shadow 0.5s;
+}
+
+.one {
+	background-color: #30fa06;
+	box-shadow: 0 0 5px #30fa06;
+}
+
+.two {
+	background-color: #ff00ee;
+	box-shadow: 0 0 5px #ff00ee;
+}
+
+.three {
+	background-color: #00cefc;
+	box-shadow: 0 0 5px #00cefc;
+}
+
+.one:hover {
+	background-color: rgb(67, 191, 42);
+}
+
+.two:hover {
+	background-color: rgb(189, 52, 180);
+}
+
+.three:hover {
+	background-color: rgb(53, 150, 172);
 }
 
 .title {
@@ -180,4 +245,12 @@ span {
 	100% {
 		opacity: 1;
 	}
+}
+
+.modal .fas {
+	color: black;
+}
+
+.modal .fas:hover {
+	cursor: default;
 }
