@@ -7,8 +7,10 @@ const closeButton = document.querySelector(".modalClose");
 const stopWatch = document.querySelector(".stopWatch");
 const time = document.querySelector(".time");
 const timeList = document.querySelector(".timeList");
-const infoButton = document.querySelector(".info");
 const modalShadow = document.querySelector(".modalShadow");
+const questionButton = document.querySelector(".fa-question");
+const colorButton = document.querySelector(".fa-paint-brush");
+
 let countTime;
 let minutes = 0;
 let seconds = 0;
@@ -32,10 +34,6 @@ const handleStart = () => {
 	}, 1000);
 };
 
-const handlePause = () => {
-	clearInterval(countTime);
-};
-
 const handleStop = () => {
 	time.innerHTML = `Ostatni czas to: ${stopWatch.textContent}`;
 
@@ -43,7 +41,11 @@ const handleStop = () => {
 		time.style.visibility = "visible";
 		timesArray.push(stopWatch.textContent);
 	}
+	clearInterval(countTime);
 	clearStuff();
+};
+
+const handlePause = () => {
 	clearInterval(countTime);
 };
 
@@ -88,6 +90,6 @@ pauseButton.addEventListener("click", handlePause);
 stopButton.addEventListener("click", handleStop);
 resetButton.addEventListener("click", handleReset);
 historyButton.addEventListener("click", showHistory);
-infoButton.addEventListener("click", showModal);
+questionButton.addEventListener("click", showModal);
 closeButton.addEventListener("click", showModal);
 window.addEventListener("click", e => (e.target === modalShadow ? showModal() : false));
